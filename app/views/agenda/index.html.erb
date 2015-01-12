@@ -1,0 +1,10 @@
+<h1>会议议程</h1>
+<br>
+<table class="table">
+  <% @agendas.each do |agenda| %>
+    <tr>
+      <td><%= agenda.period %></td>
+      <td><%= agenda.title %><br><%= agenda.speaker %></td>
+    </tr>
+  <% end %>
+</table>
