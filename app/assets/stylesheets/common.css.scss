@@ -46,14 +46,15 @@ input { vertical-align:middle;}
 .TopicsC a img{ width:100%;}
 
 /* 专家简介 */
-.ExpertA{ height:80px; width:100%; margin-top:1px; background-color:#FFF; border-bottom:1px solid #f0f0f0;}
-.ExpertB{ width:15%; float:left; margin:13px 10px; border-radius:10px; }
+.ExpertA{ height:80px; width:100%; margin-top:1px; background-color:#FFF; border-bottom:1px solid #f0f0f0; clear:both;}
+.ExpertB{ width:15%; float:left; margin:12px 6px; border-radius:10px; display:inline; }
 .ExpertB img{ border-radius:10px; width:100%; border:1px solid #f0f0f0;}
-.ExpertD{ height:80px; width:65%; float:left; margin-left:4px; }
+.ExpertD{ height:80px; width:70%; float:left; margin-left:4px; }
+.ExpertI{ height:80px; width:80%; float:left; margin-left:4px; }
 .ExpertE{ font-size:20px; color:#333; height:40px; line-height:40px; border-bottom:1px solid #f0f0f0; }
-.ExpertE span{ font-size:16px; color:#8e99c6;}
+.ExpertE span{ font-size:16px; margin:0 2px; color:#8e99c6;}
 .ExpertF{ font-size:16px; color:#9a9a9a; height:40px; line-height:40px; overflow:hidden; white-space: nowrap;}
-.ExpertG{ float:left; margin-top:18px; margin-left:4px;}
+.ExpertG{ float:left; margin-top:18px;}
 .ExpertG a img{ height:44px; width:22px;}
 .ExpertH{ clear:both; background-color:#FFF; width:100%; color:#333; border-top:1px solid #f0f0f0;}
 .ExpertH p{ width:94%; margin:10px auto; color:#666666; font-size:18px; line-height:30px; padding:8px 0; }
