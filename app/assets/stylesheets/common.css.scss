@@ -28,7 +28,7 @@ input { vertical-align:middle;}
 #div01{ width:100%; background-color:#f0f0f0; overflow:hidden;}
 .ConferenceT{ width:100%; margin-bottom:8px; background-color:#006fbb; font-size:25px; text-align:center; color:#FFF; height:2em; line-height:2em;}
 .T-back{ width:22%; text-align:center; height:0%; }
-.T-back a{ font-size:19px; color:#cce3f2;}
+.T-back a{ font-size:19px; color:#cce3f2; float:left; margin-left: 10px;}
 
 /* Topics */
 .ConferenceA{ height:80px; width:100%; border-bottom:1px solid #f0f0f0; background-color: #FFF; font-size:19px;}
