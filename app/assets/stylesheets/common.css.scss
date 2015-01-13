@@ -1,5 +1,3 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 body { margin:0; padding:0; font-family:"微软雅黑"; }
 a {text-decoration: none;}
@@ -13,57 +11,49 @@ input { vertical-align:middle;}
 .Fleft{ float:left;}
 .Fright{ float:right;}
 
-
 /* 首页 */
-#BGw{ width:100%; background-image: image-url("indexBG.jpg"); height:900px;}
-.IndexA{ height:70px; width:100%; padding:10px; }
-.IndexA a{ height:70px; margin:0 10px; display:inline-block;}
-.IndexB{ width:100%; height:530px; margin:0 auto;}
+.bg-img{ width:100%; }
+.IndexA{ width:100%; position:relative; }
+.IndexB{ width:90%; height:50%; position:absolute; top:6%; left:5%;}
 .IndexB ul{ }
-.IndexB ul li{ height:220px; width:300px; float:left; margin-top:30px; text-align:center;}
-.IndexB ul li a{ height:220px; width:220px;}
+.IndexB ul li{ width:50%; float:left; margin-top:26px; text-align:center;}
+.IndexB ul li a img{ width:85%;}
 
 /* 欢迎词 */
-#Salutatory{ width:640px; background-image: image-url("salutatoryBG.png"); height:1300px;}
-.SalutatoryA{ height:940px; width:630px; background-image:image-url("login08.png"); margin:260px auto 0 auto; }
-.SalutatoryA p{ width:520px; margin:0 auto; padding-top:28px; color:#001870; font-size:27px; line-height:36x; }
+.SalutatoryB{ width: 100%; }
+.salu-bg { width: 100% }
 
 /* conference agenda */
-#div01{ width:640px; background-color:#f0f0f0; overflow:hidden;}
-.ConferenceT{ height:92px; width:100%; margin-bottom:12px; background:image-url("titlebg.png") repeat-x; font-size:37px; line-height:90px; text-align:center; color:#FFF;}
-.ConferenceF{ font-size:26px; line-height:130px; height:130px; width:210px; text-align:center; float:left;}
-.Orange26{ color:#fc5204;}
-.Blue26{ color:#6372b3;}
-.ConferenceG{ height:130px; width:430px; text-align:left; float:left; }
-.G1{ font-size:26px; color:#333333; line-height:70px;}
-.G2{ font-size:24px; color:#848484; line-height:60px;}
-.G3{ font-size:26px; color:#333333; line-height:130px;}
-.G4{ font-size:26px; color:#333333; line-height:43px;}
-.G5{ font-size:24px; color:#848484; line-height:43px;}
-.ConferenceH{ font-size:30px; height:90px; line-height:90px; width:640px; padding-left:16px; background-color:#f0f0f0; text-align:left; color:#c4c4c4;}
-.ConferenceH img{ margin:0 10px;}
+.agenda-bg { width: 100%; }
+#div01{ width:100%; background-color:#f0f0f0; overflow:hidden;}
+.ConferenceT{ width:100%; margin-bottom:8px; background-color:#006fbb; font-size:25px; text-align:center; color:#FFF; height:2em; line-height:2em;}
+.T-back{ width:22%; text-align:center; height:0%; }
+.T-back a{ font-size:19px; color:#cce3f2;}
 
 /* Topics */
-.ConferenceA{ height:130px; width:640px; border-bottom:1px solid #f0f0f0; background-color: #FFF; font-size:28px;}
+.ConferenceA{ height:80px; width:100%; border-bottom:1px solid #f0f0f0; background-color: #FFF; font-size:19px;}
 .ConferenceA span{ float:left;}
-.ConferenceB{ line-height:130px; color:#6372b3; width:120px; text-align:center;}
-.ConferenceC{ color:#333333; width:440px; text-align:left; line-height:130px; height:130px; }
-.ConferenceE{ color:#333333; width:440px; text-align:left; line-height:65px; height:130px; }
-.ConferenceD{ width:80px; text-align:center; height:50px; margin-top:40px; }
-.TopicsA{ height:440px; margin:20px auto; width:630px;}
-.TopicsB{ height:340px; width:598px; margin-left:29px; background-color:#ffffff; border:1px solid #dcdcdc;}
-.TopicsC{ height:320px; width:570px; background-image:image-url("TopM.png"); margin:10px 14px; cursor:pointer; }
-.TopicsC span{ line-height:80px; font-size:30px; color:#a9a9a9;}
-.TopicsD{ height:76px; width:286px; margin:40px auto;}
+.ConferenceB{ line-height:80px; color:#6372b3; width:16%; text-align:center;}
+.ConferenceC{ color:#333333; width:66%; text-align:left; line-height:40px;}
+.ConferenceE{ color:#333333; width:66%; text-align:left; line-height:26px;  }
+.ConferenceF{  color:#333333; width:66%; text-align:left; line-height:80px;  }
+.ConferenceD{ width:18%; text-align:center; height:40px; margin-top:14px; }
+.TopicsA{ height:320px; margin:20px auto; width:100%; background-color:#ffffff; border:1px solid #dcdcdc;}
+.TopicsA P{ font-size:24px; height:60px; line-height:60px; color:#666; text-align:center; width:100%; border-bottom:1px solid #dcdcdc;}
+.TopicsB{ height:240px; width:94%; margin:10px auto; background-color:#f4f4f4;}
+.TopicsB span{ line-height:60px; color:#a9a9a9; font-size:22px;}
+.TopicsC{ width:60%; margin:30px auto;}
+.TopicsC a img{ width:100%;}
 
 /* 专家简介 */
-.ExpertA{ height:170px; width:640px; margin-top:1px; background-color:#FFF; border-bottom:1px solid #f0f0f0;}
-.ExpertB{ height:122px; width:122px; position:relative; float:left; margin:24px 22px; }
-.ExpertC{ height:122px; width:122px; position:absolute; top:0; left:0; background-image:image-url("HeadT.png"); }
-.ExpertD{ height:170px; width:415px; float:left; margin-left:4px; }
-.ExpertE{ font-size:30px; color:#333; height:84px; line-height:84px; border-bottom:1px solid #f0f0f0; width:400px;}
-.ExpertE span{ font-size:26px; margin:0 15px;}
-.font25{ font-size:25px; color:#8e99c6;}
-.ExpertF{ font-size:26px; color:#9a9a9a; height:85px; line-height:85px; width:400px;}
-.ExpertG{ float:left; width:30px; margin-top:62px; margin-left:10px;}
+.ExpertA{ height:80px; width:100%; margin-top:1px; background-color:#FFF; border-bottom:1px solid #f0f0f0;}
+.ExpertB{ width:15%; float:left; margin:13px 10px; border-radius:10px; }
+.ExpertB img{ border-radius:10px; width:100%; border:1px solid #f0f0f0;}
+.ExpertD{ height:80px; width:65%; float:left; margin-left:4px; }
+.ExpertE{ font-size:20px; color:#333; height:40px; line-height:40px; border-bottom:1px solid #f0f0f0; }
+.ExpertE span{ font-size:16px; margin:0 2px; color:#8e99c6;}
+.ExpertF{ font-size:16px; color:#9a9a9a; height:40px; line-height:40px; overflow:hidden; white-space: nowrap;}
+.ExpertG{ float:left; margin-top:18px; margin-left:4px;}
 .ExpertG a img{ height:44px; width:22px;}
+.ExpertH{ clear:both; background-color:#FFF; width:100%; color:#333; border-top:1px solid #f0f0f0;}
+.ExpertH p{ width:94%; margin:10px auto; color:#666666; font-size:18px; line-height:30px; padding:8px 0; }

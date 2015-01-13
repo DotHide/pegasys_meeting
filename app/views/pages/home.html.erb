@@ -1,14 +1,28 @@
-<ul>
-  <li>
-    <%= link_to '欢迎词', page_path('welcome') %>
-  </li>
-  <li>
-    <%= link_to '专家简介', '#' %>
-  </li>
-  <li>
-    <%= link_to '会议议程', agenda_index_path %>
-  </li>
-  <li>
-    <%= link_to 'Topic 分享', '#' %>
-  </li>
-</ul>
+<div class="IndexA">
+  <!-- <img style=" width:100%;" src="images/salutatoryBG.png" /> -->
+  <%= image_tag 'salutatoryBG.png', class: 'bg-img' %>
+  <div class="IndexB">
+    <ul>
+      <li>
+        <%= link_to page_path('welcome') do %>
+        <%= image_tag 'login04.png' %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' do %>
+        <%= image_tag 'login05.png' %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to page_path('agenda') do %>
+        <%= image_tag 'login06.png' %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' do %>
+        <%= image_tag 'login07.png' %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
