@@ -1,0 +1,22 @@
+<div class="div01">
+  <div class="ConferenceT">专家简介</div>
+  <% @experts.each do |expert| %>
+  <div class="ExpertA">
+    <div class="ExpertB">
+      <%= image_tag expert.face %>
+    </div>
+    <div class="ExpertD">
+      <div class="ExpertE">
+        <%= expert.name %> <span>（<%= expert.title %>）</span>
+      </div>
+      <div class="ExpertF"><%= expert.intro %></div>
+    </div>
+    <div class="ExpertG">
+      <!-- <a href="#"><img src="images/login09.png" /></a> -->
+      <%= link_to expert_path(expert) do %>
+        <%= image_tag 'login09.png' %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

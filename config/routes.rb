@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'experts' => 'expert#index'
+
+  get 'expert/:id' => 'expert#show', as: 'expert'
+
   get 'agenda/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

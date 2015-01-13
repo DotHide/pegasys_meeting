@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-agendas = Agenda.create([
+agendas = Agenda.first_or_create([
   { period: '08:00 - 08:05', title: '开场视频&罗氏领导致辞', speaker: '讲者: 罗氏中国副总裁' },
   { period: '08:05 - 08:25', title: '丙肝防控前沿: 新理念，新思考', speaker: '主席: 庄辉 院士 讲者: 庄辉 院士' },
   { period: '08:25 - 08:45', title: '医生眼中的丙肝治疗: 价值和挑战', speaker: '主席: 庄辉 院士 讲者: 庄辉 院士' },
@@ -26,4 +26,20 @@ agendas = Agenda.create([
   { period: '11:00 - 11:20', title: 'P/R治疗不良反应可控可处理', speaker: '主席: 张鸿飞 教授 讲者: 谢尧 教授' },
   { period: '12:20 - 12:25', title: 'Q&A', speaker: '主持: 翁文华 教授、 张鸿飞 教授 参加讨论答疑: 所有主席和讲者' },
   { period: '12:25 - 12:35', title: '大会总结', speaker: '主席: 庄辉 院士、 翁文化 教授' }
+]);
+
+experts = Expert.first_or_create([
+  { face: 'head01.jpg', name: '庄辉 院士', title: '大会主席', intro: '中国工程院院士。' },
+  { face: 'head02.jpg', name: '翁心华 教授', title: '大会主席', intro: '医学教授、博士研究生导师。' },
+  { face: 'head03.jpg', name: '庄万龙 教授', title: '嘉宾', intro: '台湾高雄医学大学附设中和纪念医院' },
+  { face: 'head04.jpg', name: '张鸿飞 教授', title: '嘉宾', intro: '全军小儿肝病专病中心' },
+  { face: 'head05.jpg', name: '李金明 博士', title: '嘉宾', intro: '卫生部临床检验中心' },
+  { face: 'head06.jpg', name: '陈新月 教授', title: '嘉宾', intro: '首都医科大学附属北京佑安医院主任' },
+  { face: 'head07.jpg', name: '尚佳', title: '嘉宾', intro: '河南省人民医院' },
+  { face: 'head08.jpg', name: '段钟平 教授', title: '嘉宾', intro: '首都医科大学附属北京佑安医院' },
+  { face: 'head09.jpg', name: '谢尧 教授', title: '嘉宾', intro: '北京地坛医院' },
+  { face: 'head10.jpg', name: '谢青 教授', title: '嘉宾', intro: '上海交通大学医学院附属瑞金医院' },
+  { face: 'head11.jpg', name: '蔺淑梅 教授', title: '嘉宾', intro: '西安交通大学医学院第一附属医院' },
+  { face: 'head12.jpg', name: '魏来 教授', title: '嘉宾', intro: '北京大学人民医院' },
+  { face: 'head13.jpg', name: 'Martina A. Sersch', title: '嘉宾', intro: '医学博士、高级医学总监。' },
 ]);

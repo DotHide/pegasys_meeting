@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113033308) do
+ActiveRecord::Schema.define(version: 20150113060921) do
 
   create_table "agendas", force: :cascade do |t|
     t.string   "period",     limit: 255
@@ -22,11 +22,13 @@ ActiveRecord::Schema.define(version: 20150113033308) do
   end
 
   create_table "experts", force: :cascade do |t|
-    t.string   "face",       limit: 255
-    t.string   "name",       limit: 255
-    t.string   "intro",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "face",         limit: 255
+    t.string   "name",         limit: 255
+    t.string   "intro",        limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "title",        limit: 255
+    t.text     "intro_detail", limit: 65535
   end
 
 end

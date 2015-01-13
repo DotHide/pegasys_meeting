@@ -1,0 +1,19 @@
+<div class="div01">
+  <div class="ConferenceT">
+    <div class="T-back">
+      <%= link_to '返回', experts_path %>
+    </div>专家简介
+  </div>
+  <div class="ExpertA">
+    <div class="ExpertB">
+      <%= image_tag @expert.face %>
+    </div>
+    <div class="ExpertD">
+      <div class="ExpertE"><%= @expert.name %> <span>（<%= @expert.title %>）</span></div>
+      <div class="ExpertF"><%= @expert.intro %></div>
+    </div>
+    <div class="ExpertH">
+      <%= sanitize @expert.intro_detail, okTags: 'p' %>
+    </div>
+  </div>
+</div>
