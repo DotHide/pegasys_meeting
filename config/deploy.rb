@@ -10,10 +10,10 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'git.pxtek.com'
+set :domain, '115.29.146.154'
 set :deploy_to, '/home/apps/rails_projects/meeting'
-set :repository, 'git@github.com:DotHide/pegasys_meeting.git'
-set :branch, 'experts'
+set :repository, 'https://github.com/DotHide/pegasys_meeting.git'
+set :branch, 'master'
 
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'

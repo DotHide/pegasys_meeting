@@ -1,0 +1,82 @@
+<div class="div01">
+  <div class="ConferenceT">
+    <span class="T-back">
+      <%= link_to '<', page_path('home') %>请选择您感兴趣的话题
+    </span>
+  </div>
+  <%= simple_form_for @record, url: records_path, :method => :post do |f| %>
+  <div class="ConferenceA">
+   <span class="ConferenceB">01</span>
+   <span class="ConferenceC">丙肝防控前沿: 新理念，新思考</span>
+   <span class="ConferenceD">
+    <input type="checkbox" value="1" name="record[ppt][]" id="record_ppt_1">
+  </span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">02</span>
+ <span class="ConferenceC">医生眼中的丙肝治疗: 价值和挑战</span>
+ <span class="ConferenceD"><input type="checkbox" value="2" name="record[ppt][]" id="record_ppt_2"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">03</span>
+ <span class="ConferenceC">从WHO指南看亚洲人群的丙肝治疗</span>
+ <span class="ConferenceD"><input type="checkbox" value="3" name="record[ppt][]" id="record_ppt_3"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">04</span>
+ <span class="ConferenceC">中国丙肝防治的规范和进展</span>
+ <span class="ConferenceD"><input type="checkbox" value="4" name="record[ppt][]" id="record_ppt_4"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">05</span>
+ <span class="ConferenceC">中山医院内科住院医师讲座</span>
+ <span class="ConferenceD"><input type="checkbox" value="5" name="record[ppt][]" id="record_ppt_5"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">06</span>
+ <span class="ConferenceF">ECHO在中国的实践</span>
+ <span class="ConferenceD"><input type="checkbox" value="6" name="record[ppt][]" id="record_ppt_6"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">07</span>
+ <span class="ConferenceC">中国丙肝患者实现更高治愈的关键成功因素</span>
+ <span class="ConferenceD"><input type="checkbox" value="7" name="record[ppt][]" id="record_ppt_7"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">08</span>
+ <span class="ConferenceE">高灵敏度HCV RNA检测在丙肝规范化治疗中的价值</span>
+ <span class="ConferenceD"><input type="checkbox" value="8" name="record[ppt][]" id="record_ppt_8"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">09</span>
+ <span class="ConferenceC">P/R治疗不良反应可控可处理</span>
+ <span class="ConferenceD"><input type="checkbox" value="9" name="record[ppt][]" id="record_ppt_9"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">10</span>
+ <span class="ConferenceC">丙肝合并糖代谢异常的管理</span>
+ <span class="ConferenceD"><input type="checkbox" value="10" name="record[ppt][]" id="record_ppt_10"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">11</span>
+ <span class="ConferenceC">透析患者的丙肝抗病毒治疗问题</span>
+ <span class="ConferenceD"><input type="checkbox" value="11" name="record[ppt][]" id="record_ppt_11"></span>
+</div>
+<div class="ConferenceA">
+ <span class="ConferenceB">12</span>
+ <span class="ConferenceC">安欣之选，源于品质：生物类似物与创新药物</span>
+ <span class="ConferenceD"><input type="checkbox" value="12" name="record[ppt][]" id="record_ppt_12"></span>
+</div>
+<div class="TopicsA">
+  <p>针对该课题您有什么问题？</p>
+  <div class="TopicsB">
+    <span>
+      <%= f.input :comment, :as => :text, :input_html => { :rows => 15, style: 'width:96%' }, :label => false %>
+    </span>
+  </div>
+  <div class="TopicsC">
+    <%= image_submit_tag "SubmitC.jpg", :width => 200 %>
+  </div>
+</div>
+<% end %>
+</div>

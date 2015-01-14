@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'record/new'
+  get 'record/:id' => 'record#show', as: 'record'
+  post 'records' => 'record#create', as: 'records'
+
   get 'experts' => 'expert#index'
 
   get 'expert/:id' => 'expert#show', as: 'expert'
