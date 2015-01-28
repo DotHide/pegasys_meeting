@@ -1,26 +1,25 @@
 <div class="div01">
   <div class="ConferenceT">
     <span class="T-back">
-    <%= link_to '<', page_path('home') %>
-  </span>专家简介
+    </span>专家简介
   </div>
   <% @experts.each do |expert| %>
-  <div class="ExpertA">
-    <div class="ExpertB">
-      <%= image_tag expert.face %>
-    </div>
-    <div class="ExpertD">
-      <div class="ExpertE">
-        <%= expert.name %> <span>（<%= expert.title %>）</span>
+    <%= link_to expert_path(expert) do %>
+      <div class="ExpertA">
+        <div class="ExpertB">
+          <%= image_tag expert.face %>
+        </div>
+        <div class="ExpertD">
+          <div class="ExpertE">
+            <%= expert.name %> <!-- <span>（<%= expert.title %>）</span> -->
+          </div>
+          <div class="ExpertF"><%= expert.intro %></div>
+        </div>
+        <div class="ExpertG">
+          <!-- <a href="#"><img src="images/login09.png" /></a> -->
+          <%= image_tag 'login09.png' %>
+        </div>
       </div>
-      <div class="ExpertF"><%= expert.intro %></div>
-    </div>
-    <div class="ExpertG">
-      <!-- <a href="#"><img src="images/login09.png" /></a> -->
-      <%= link_to expert_path(expert) do %>
-        <%= image_tag 'login09.png' %>
-      <% end %>
-    </div>
-  </div>
+    <% end %>
   <% end %>
 </div>
