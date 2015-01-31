@@ -100,7 +100,8 @@ namespace :unicorn do
   task :stop do
     queue 'echo "-----> Stop Unicorn"'
     queue! %{
-      test -s "#{unicorn_pid}" && kill -QUIT `cat #{unicorn_pid}` && echo "Stop Ok" && exit 0
+      test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && echo "Stop Ok" && exit 0
+      echo `cat "#{unicorn_pid}"`
       echo >&2 "Not running"
     }
   end
