@@ -30,7 +30,6 @@ end
 
 # 部署时必要的
 gem 'mina', '~> 0.3.1'
-gem 'mina-unicorn', :require => false
 
 # 常用组件
 gem 'simple_form' # 表单
