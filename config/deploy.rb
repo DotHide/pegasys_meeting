@@ -11,10 +11,10 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :domain, '115.29.146.154'
-set :deploy_to, '/home/apps/rails_projects/meeting/'
+set :deploy_to, '/home/apps/rails_projects/meeting'
 set :repository, 'https://github.com/DotHide/pegasys_meeting.git'
 set :branch, 'master'
-set :app_path,  "#{deploy_to}/current/"
+set :app_path,  "#{deploy_to}/current"
 set :rails_env, "production"
 
 # For system-wide RVM install.
