@@ -11,9 +11,11 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :domain, '115.29.146.154'
-set :deploy_to, '/home/apps/rails_projects/meeting'
+set :deploy_to, '/home/apps/rails_projects/meeting/'
 set :repository, 'https://github.com/DotHide/pegasys_meeting.git'
 set :branch, 'master'
+set :app_path,  "#{deploy_to}/current/"
+set :rails_env, "production"
 
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'
@@ -41,6 +43,9 @@ end
 # Put any custom mkdir's in here for when `mina setup` is ran.
 # For Rails apps, we'll make some of the shared paths that are shared between
 # all releases.
+
+# => Setup task
+# ===========================================================================================
 task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/log"]
@@ -52,6 +57,8 @@ task :setup => :environment do
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
 end
 
+# => Deploy task
+# ===========================================================================================
 desc "Deploys the current version to the server."
 task :deploy => :environment do
   deploy do
@@ -65,16 +72,45 @@ task :deploy => :environment do
     invoke :'deploy:cleanup'
 
     to :launch do
-      queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
-      queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
+      invoke :'unicorn:restart'
     end
   end
 end
 
-# For help in making your deploy script, see the Mina documentation:
-#
-#  - http://nadarei.co/mina
-#  - http://nadarei.co/mina/tasks
-#  - http://nadarei.co/mina/settings
-#  - http://nadarei.co/mina/helpers
+# => Unicorn task
+# ===========================================================================================
+namespace :unicorn do
+  set :unicorn_pid, "#{app_path}/tmp/pids/unicorn.pid"
+  set :start_unicorn, %{
+    cd #{app_path}
+    bundle exec unicorn_rails -c #{app_path}/config/unicorn.rb -E #{rails_env} -D
+  }
 
+# => Start task
+# -------------------------------------------------------------------------------------------
+  desc "Start Unicorn"
+  task :start => :environment do
+    queue 'echo "-----> Start Unicorn"'
+    queue! start_unicorn
+  end
+
+# => Stop task
+# -------------------------------------------------------------------------------------------
+  desc "Stop Unicorn"
+  task :stop do
+    queue 'echo "-----> Stop Unicorn"'
+    queue! %{
+      test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && echo "Stop Ok" && exit 0
+      echo >&2 "Not running"
+    }
+  end
+
+# => Restart task
+# -------------------------------------------------------------------------------------------
+  desc "Restart unicorn using 'upgrade'"
+  task :restart => :environment do
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
+  end
+
+end

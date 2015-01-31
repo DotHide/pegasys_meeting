@@ -14,7 +14,7 @@ stderr_path "#{Rails.root}/log/unicornerr.log"
 stdout_path "#{Rails.root}/log/unicornout.log"
 
 listen 5000, :tcp_nopush => false
-
+user 'apps', 'apps'
 # 这里设置监听地址，将与nginx配置关联
 listen "/tmp/unicorn.meeting.sock"
 worker_processes 6
@@ -33,4 +33,8 @@ before_fork do |server, worker|
       puts "Send 'QUIT' signal to unicorn error!"
     end
   end
+end
+
+after_fork do |server, worker|
+  ActiveRecord::Base.establish_connection
 end
