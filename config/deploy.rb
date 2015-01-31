@@ -10,6 +10,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
+set :term_mode, :system
 set :domain, '115.29.146.154'
 set :deploy_to, '/home/apps/rails_projects/meeting'
 set :repository, 'https://github.com/DotHide/pegasys_meeting.git'
@@ -77,6 +78,7 @@ task :deploy => :environment do
   end
 end
 
+
 # => Unicorn task
 # ===========================================================================================
 namespace :unicorn do
@@ -84,6 +86,10 @@ namespace :unicorn do
   set :start_unicorn, %{
     cd #{app_path}
     bundle exec unicorn_rails -c #{app_path}/config/unicorn.rb -E #{rails_env} -D
+  }
+  set :stop_unicorn, %{
+    test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && echo "Stop Ok" && exit 0
+    echo >&2 "Not running"
   }
 
 # => Start task
@@ -99,11 +105,7 @@ namespace :unicorn do
   desc "Stop Unicorn"
   task :stop do
     queue 'echo "-----> Stop Unicorn"'
-    queue! %{
-      test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && echo "Stop Ok" && exit 0
-      echo `cat "#{unicorn_pid}"`
-      echo >&2 "Not running"
-    }
+    queue! stop_unicorn
   end
 
 # => Restart task

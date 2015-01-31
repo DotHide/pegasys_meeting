@@ -1,20 +1,14 @@
-module Rails
-  class <<self
-    def root
-      File.expand_path(__FILE__).split('/')[0..-3].join('/')
-    end
-  end
-end
+app_path = "/home/apps/rails_projects/meeting/current"
 rails_env = ENV["RAILS_ENV"] || "production"
 
 preload_app true
-working_directory Rails.root
-pid "#{Rails.root}/tmp/pids/unicorn.pid"
-stderr_path "#{Rails.root}/log/unicornerr.log"
-stdout_path "#{Rails.root}/log/unicornout.log"
+working_directory app_path
+pid "#{app_path}/tmp/pids/unicorn.pid"
+stderr_path "#{app_path}/log/unicornerr.log"
+stdout_path "#{app_path}/log/unicornout.log"
 
 listen 5000, :tcp_nopush => false
-user 'apps', 'apps'
+
 # 这里设置监听地址，将与nginx配置关联
 listen "/tmp/unicorn.meeting.sock"
 worker_processes 6
@@ -25,7 +19,8 @@ if GC.respond_to?(:copy_on_write_friendly=)
 end
 
 before_fork do |server, worker|
-  old_pid = "#{Rails.root}/tmp/pids/unicorn.pid.oldbin"
+  ActiveRecord::Base.connection.disconnect!
+  old_pid = "#{app_path}/tmp/pids/unicorn.pid.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
